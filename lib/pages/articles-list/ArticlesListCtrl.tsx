@@ -22,6 +22,8 @@ const ArticlesListCtrl = () => {
         break;
     }
   };
+
+  return { pageState, eventsHandler}
 };
 
 export default ArticlesListCtrl;
