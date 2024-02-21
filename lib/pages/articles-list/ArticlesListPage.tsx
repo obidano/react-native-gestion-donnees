@@ -34,7 +34,8 @@ const ArticleItemView = ({ item }: ArticleAttr) => {
     <View style={stylesArticle.parent}>
       <View>
         <Image style={stylesArticle.image}
-               source={require("../../../images/react_native_logo.png")}/> </View>
+               source={require("../../../images/react_native_logo.png")}/>
+      </View>
       <View>
         <Text>{item.nom}</Text>
       </View>
@@ -46,10 +47,12 @@ const stylesArticle = StyleSheet.create({
   parent: {
     flexDirection: "row",
     marginHorizontal: 10,
-    backgroundColor: "#cecece",
+    marginVertical: 5,
+    padding: 5,
+    // backgroundColor: "#cecece",
     borderRadius: 5,
-    justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    gap: 10
   },
   text: {},
   image: { width: 50, height: 50, borderRadius:50}
@@ -74,6 +77,15 @@ const ArticlesListPage = (): React.JSX.Element => {
           return <CategorieItemView item={item} />;
         }}
       />
+
+      <FlatList
+        data={pageState.listeDesArticles}
+        renderItem={({ item, index }) => {
+          return <ArticleItemView item={item} />;
+        }}
+      />
+
+
     </View>
   );
 };
